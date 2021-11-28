@@ -1,0 +1,10 @@
+{
+	"count": 1,
+	"chunk": 1024,
+	"bitrate": 24,
+	"channels": 2,
+	"sampleRate": 48000,
+	"recordingLength": 180,
+	"deletionQuota": 3600,
+	"folderName": "audios"
+}
