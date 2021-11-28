@@ -6,5 +6,6 @@
 	"sampleRate": 48000,
 	"recordingLength": 180,
 	"deletionQuota": 3600,
-	"folderName": "audios"
+	"folderName": "audios",
+    "deviceID": 14
 }

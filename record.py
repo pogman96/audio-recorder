@@ -2,14 +2,14 @@ import pyaudio
 import wave
 
 
-def record(num, device_info: dict, bitrate: int, chunk: int, channels: int, folderName: str, recordingLength: int, sampleRate: int):
+def record(num, deviceInfo: dict, bitrate: int, chunk: int, channels: int, folderName: str, recordingLength: int, sampleRate: int):
     p = pyaudio.PyAudio()
     stream = p.open(format=bitrate,
                     channels=channels,
-                    rate=int(device_info["defaultSampleRate"]),
+                    rate=int(deviceInfo["defaultSampleRate"]),
                     input=True,
                     frames_per_buffer=chunk,
-                    input_device_index=device_info["index"],
+                    input_device_index=deviceInfo["index"],
                     as_loopback=True
                     )
 

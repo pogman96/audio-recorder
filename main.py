@@ -18,17 +18,14 @@ def main():
         recordingLength = conf["recordingLength"]
         deletionQuota = conf["deletionQuota"]
         folderName = conf["folderName"]
+        deviceID = conf["deviceID"]
 
     if folderName not in os.listdir():
         os.mkdir(folderName)
 
     p = pyaudio.PyAudio()
-
-    device_id = 14
-    device_info = p.get_device_info_by_index(device_id)
-    channels = device_info["maxInputChannels"] if (
-        device_info["maxOutputChannels"] < device_info["maxInputChannels"]) else device_info["maxOutputChannels"]
-
+    deviceInfo = p.get_device_info_by_index(deviceID)
+    channels = deviceInfo["maxInputChannels"] if (deviceInfo["maxOutputChannels"] < deviceInfo["maxInputChannels"]) else deviceInfo["maxOutputChannels"]
     p.terminate()
 
     startTime = time.time()
@@ -36,7 +33,7 @@ def main():
 
     while True:
         try:
-            record(num, device_info=device_info, bitrate=bitrate, chunk=chunk, channels=channels,
+            record(num, deviceInfo=deviceInfo, bitrate=bitrate, chunk=chunk, channels=channels,
                    folderName=folderName, recordingLength=recordingLength, sampleRate=sampleRate)
             listOfNums.append(num)
             elap = time.time() - startTime
@@ -52,8 +49,7 @@ def main():
             print("Exiting")
             break
 
-    print(
-        f"Recorded for {(num-startingNum) * recordingLength} recordingLength")
+    print(f"Recorded for {(num-startingNum) * recordingLength} seconds")
 
     with open("config.json", "r+") as file:
         conf["count"] = num
