@@ -6,6 +6,6 @@
  Uses wave library https://pypi.org/project/Wave/
  
  Usage
- -configure "config.json"
- -run "run.py"
- -select deviceid
+  -configure "config.json"
+  -run "run.py"
+  -select deviceid
