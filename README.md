@@ -5,7 +5,7 @@
  
  Uses wave library https://pypi.org/project/Wave/
  
- Usage
+# Usage
   -configure "config.json"
   -run "run.py"
   -select deviceid
